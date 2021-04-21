@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<style>
+    body{
+    background-color: #c4e0f3;
+    }
+.head{
+    text-align: center;
+    color: #f8752a;
+    padding-top: 50px;
+    padding-bottom: 60px;
+    text-decoration: underline;
+    font-size: 40px;}
+.form{ 
+    text-align: center;
+    font-size: 34px;
+    color: rgb(23, 162, 184);
+}
+.sub{
+    font-size: 33px;
+    padding-left:440px;
+    padding-top: 30px;
+    
+}
+.in{
+    font-size: 17px;
+    padding: 6px 0px;
+    background-color:white;
+    cursor: pointer;
+    color: black;
+    border-radius: 23px;
+    text-align: center;
+}
+.group{
+    color: white;
+}
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-info navbar-dark">
+        <a class="navbar-brand" href='/initial'>SPARK BANK</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ">
+            <li class="nav-item">
+              <a class="nav-link text-light" href='/home'>HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href='/user'>ALL CUSTOMER</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href='/history'>ALL TRANSACTION</a>
+             </li>
+              
+          </ul>
+        </div>  
+      </nav>
+      <h1 class="head">
+        Amount transfer page
+    </h1>
+    <form class="form" action="/tran/<%= current %> " method="POST">
+        <div class="row">
+            <div class="sub">
+              <label for="balance"> How Much Amount</label>
+            </div>
+             <div class="group" style="padding-top: 28px;padding-left: 40px;">
+                 <input class="in" type="text" placeholder="Amount" name="balance" id="balance" required>
+             </div>
+        </div>
+        <div class="row" >
+            <div class="sub">
+                <label for="balance">Receiver Name</label>
+            </div>
+            <div class="form" style="box-sizing: border-box;">
+                <select name="name" style="margin-top: 30px;margin-left: 130px;">
+                    <option >-Select-</option>
+                    <% user.forEach((user)=> { %>  
+                        <option class="in" value="<%= user._id %>">
+                        <%= user.name %>
+                        </option>
+                    <% }) %>
+                </select>
+            </div> 
+        </div>
+
+        <div class="but" ">
+            <button class="in" style="padding: 10px 40px 10px 40px; margin-top: 90px;background-color: rgb(23, 162, 184);">Submit</button>
+        </div>
+    </form>
+</body>
+</html>
